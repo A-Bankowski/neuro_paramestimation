@@ -1,0 +1,488 @@
+time:
+  variable: t
+odes:
+- stateId: R
+  rightHandSide: kR*V*P-kF(t, fac, t_wait, sigma,  L, k_base, t0, a1, mu1, a2, mu2,
+    a3, mu3, a4, mu4, a5, mu5, a6, mu6, a7, mu7, a8, mu8, a9, mu9, a10, mu10, a11,
+    mu11, a12, mu12, a13, mu13, a14, mu14, a15, mu15, a16, mu16, a17, mu17, a18, mu18,
+    a19, mu19, a20, mu20, a21, mu21, a22, mu22, a23, mu23, a24, mu24, a25, mu25, a26,
+    mu26, a27, mu27, a28, mu28, a29, mu29, a30, mu30, a31, mu31, a32, mu32, a33, mu33,
+    a34, mu34, a35, mu35, a36, mu36, a37, mu37, a38, mu38, a39, mu39, a40, mu40, a41,
+    mu41, a42, mu42, a43, mu43, a44, mu44, a45, mu45, a46, mu46, a47, mu47, a48, mu48,
+    a49, mu49, a50, mu50, a51, mu51, a52, mu52, a53, mu53, a54, mu54, a55, mu55, a56,
+    mu56, a57, mu57, a58, mu58, a59, mu59, a60, mu60)*R-kU(t, fac, kUmax, steep, t_wait,
+    cliffstart, kUmin)*R
+  initialValue: ((1+(kF(0, fac, t_wait, sigma,  L, k_base, t0, a1, mu1, a2, mu2, a3,
+    mu3, a4, mu4, a5, mu5, a6, mu6, a7, mu7, a8, mu8, a9, mu9, a10, mu10, a11, mu11,
+    a12, mu12, a13, mu13, a14, mu14, a15, mu15, a16, mu16, a17, mu17, a18, mu18, a19,
+    mu19, a20, mu20, a21, mu21, a22, mu22, a23, mu23, a24, mu24, a25, mu25, a26, mu26,
+    a27, mu27, a28, mu28, a29, mu29, a30, mu30, a31, mu31, a32, mu32, a33, mu33, a34,
+    mu34, a35, mu35, a36, mu36, a37, mu37, a38, mu38, a39, mu39, a40, mu40, a41, mu41,
+    a42, mu42, a43, mu43, a44, mu44, a45, mu45, a46, mu46, a47, mu47, a48, mu48, a49,
+    mu49, a50, mu50, a51, mu51, a52, mu52, a53, mu53, a54, mu54, a55, mu55, a56, mu56,
+    a57, mu57, a58, mu58, a59, mu59, a60, mu60)/gV))*nsites+(1+(kF(0, fac, t_wait,
+    sigma,  L, k_base, t0, a1, mu1, a2, mu2, a3, mu3, a4, mu4, a5, mu5, a6, mu6, a7,
+    mu7, a8, mu8, a9, mu9, a10, mu10, a11, mu11, a12, mu12, a13, mu13, a14, mu14,
+    a15, mu15, a16, mu16, a17, mu17, a18, mu18, a19, mu19, a20, mu20, a21, mu21, a22,
+    mu22, a23, mu23, a24, mu24, a25, mu25, a26, mu26, a27, mu27, a28, mu28, a29, mu29,
+    a30, mu30, a31, mu31, a32, mu32, a33, mu33, a34, mu34, a35, mu35, a36, mu36, a37,
+    mu37, a38, mu38, a39, mu39, a40, mu40, a41, mu41, a42, mu42, a43, mu43, a44, mu44,
+    a45, mu45, a46, mu46, a47, mu47, a48, mu48, a49, mu49, a50, mu50, a51, mu51, a52,
+    mu52, a53, mu53, a54, mu54, a55, mu55, a56, mu56, a57, mu57, a58, mu58, a59, mu59,
+    a60, mu60)/gP))*nves+(kF(0, fac, t_wait, sigma,  L, k_base, t0, a1, mu1, a2, mu2,
+    a3, mu3, a4, mu4, a5, mu5, a6, mu6, a7, mu7, a8, mu8, a9, mu9, a10, mu10, a11,
+    mu11, a12, mu12, a13, mu13, a14, mu14, a15, mu15, a16, mu16, a17, mu17, a18, mu18,
+    a19, mu19, a20, mu20, a21, mu21, a22, mu22, a23, mu23, a24, mu24, a25, mu25, a26,
+    mu26, a27, mu27, a28, mu28, a29, mu29, a30, mu30, a31, mu31, a32, mu32, a33, mu33,
+    a34, mu34, a35, mu35, a36, mu36, a37, mu37, a38, mu38, a39, mu39, a40, mu40, a41,
+    mu41, a42, mu42, a43, mu43, a44, mu44, a45, mu45, a46, mu46, a47, mu47, a48, mu48,
+    a49, mu49, a50, mu50, a51, mu51, a52, mu52, a53, mu53, a54, mu54, a55, mu55, a56,
+    mu56, a57, mu57, a58, mu58, a59, mu59, a60, mu60) + kU(0, fac, kUmax, steep, t_wait,
+    cliffstart, kUmin))/kR)/(2*(1+(kF(0, fac, t_wait, sigma,  L, k_base, t0, a1, mu1,
+    a2, mu2, a3, mu3, a4, mu4, a5, mu5, a6, mu6, a7, mu7, a8, mu8, a9, mu9, a10, mu10,
+    a11, mu11, a12, mu12, a13, mu13, a14, mu14, a15, mu15, a16, mu16, a17, mu17, a18,
+    mu18, a19, mu19, a20, mu20, a21, mu21, a22, mu22, a23, mu23, a24, mu24, a25, mu25,
+    a26, mu26, a27, mu27, a28, mu28, a29, mu29, a30, mu30, a31, mu31, a32, mu32, a33,
+    mu33, a34, mu34, a35, mu35, a36, mu36, a37, mu37, a38, mu38, a39, mu39, a40, mu40,
+    a41, mu41, a42, mu42, a43, mu43, a44, mu44, a45, mu45, a46, mu46, a47, mu47, a48,
+    mu48, a49, mu49, a50, mu50, a51, mu51, a52, mu52, a53, mu53, a54, mu54, a55, mu55,
+    a56, mu56, a57, mu57, a58, mu58, a59, mu59, a60, mu60)/gP))*(1+(kF(0, fac, t_wait,
+    sigma,  L, k_base, t0, a1, mu1, a2, mu2, a3, mu3, a4, mu4, a5, mu5, a6, mu6, a7,
+    mu7, a8, mu8, a9, mu9, a10, mu10, a11, mu11, a12, mu12, a13, mu13, a14, mu14,
+    a15, mu15, a16, mu16, a17, mu17, a18, mu18, a19, mu19, a20, mu20, a21, mu21, a22,
+    mu22, a23, mu23, a24, mu24, a25, mu25, a26, mu26, a27, mu27, a28, mu28, a29, mu29,
+    a30, mu30, a31, mu31, a32, mu32, a33, mu33, a34, mu34, a35, mu35, a36, mu36, a37,
+    mu37, a38, mu38, a39, mu39, a40, mu40, a41, mu41, a42, mu42, a43, mu43, a44, mu44,
+    a45, mu45, a46, mu46, a47, mu47, a48, mu48, a49, mu49, a50, mu50, a51, mu51, a52,
+    mu52, a53, mu53, a54, mu54, a55, mu55, a56, mu56, a57, mu57, a58, mu58, a59, mu59,
+    a60, mu60)/gV)))-sqrt(((1+(kF(0, fac, t_wait, sigma,  L, k_base, t0, a1, mu1,
+    a2, mu2, a3, mu3, a4, mu4, a5, mu5, a6, mu6, a7, mu7, a8, mu8, a9, mu9, a10, mu10,
+    a11, mu11, a12, mu12, a13, mu13, a14, mu14, a15, mu15, a16, mu16, a17, mu17, a18,
+    mu18, a19, mu19, a20, mu20, a21, mu21, a22, mu22, a23, mu23, a24, mu24, a25, mu25,
+    a26, mu26, a27, mu27, a28, mu28, a29, mu29, a30, mu30, a31, mu31, a32, mu32, a33,
+    mu33, a34, mu34, a35, mu35, a36, mu36, a37, mu37, a38, mu38, a39, mu39, a40, mu40,
+    a41, mu41, a42, mu42, a43, mu43, a44, mu44, a45, mu45, a46, mu46, a47, mu47, a48,
+    mu48, a49, mu49, a50, mu50, a51, mu51, a52, mu52, a53, mu53, a54, mu54, a55, mu55,
+    a56, mu56, a57, mu57, a58, mu58, a59, mu59, a60, mu60)/gV))*nsites+(1+(kF(0, fac,
+    t_wait, sigma,  L, k_base, t0, a1, mu1, a2, mu2, a3, mu3, a4, mu4, a5, mu5, a6,
+    mu6, a7, mu7, a8, mu8, a9, mu9, a10, mu10, a11, mu11, a12, mu12, a13, mu13, a14,
+    mu14, a15, mu15, a16, mu16, a17, mu17, a18, mu18, a19, mu19, a20, mu20, a21, mu21,
+    a22, mu22, a23, mu23, a24, mu24, a25, mu25, a26, mu26, a27, mu27, a28, mu28, a29,
+    mu29, a30, mu30, a31, mu31, a32, mu32, a33, mu33, a34, mu34, a35, mu35, a36, mu36,
+    a37, mu37, a38, mu38, a39, mu39, a40, mu40, a41, mu41, a42, mu42, a43, mu43, a44,
+    mu44, a45, mu45, a46, mu46, a47, mu47, a48, mu48, a49, mu49, a50, mu50, a51, mu51,
+    a52, mu52, a53, mu53, a54, mu54, a55, mu55, a56, mu56, a57, mu57, a58, mu58, a59,
+    mu59, a60, mu60)/gP))*nves+(kF(0, fac, t_wait, sigma,  L, k_base, t0, a1, mu1,
+    a2, mu2, a3, mu3, a4, mu4, a5, mu5, a6, mu6, a7, mu7, a8, mu8, a9, mu9, a10, mu10,
+    a11, mu11, a12, mu12, a13, mu13, a14, mu14, a15, mu15, a16, mu16, a17, mu17, a18,
+    mu18, a19, mu19, a20, mu20, a21, mu21, a22, mu22, a23, mu23, a24, mu24, a25, mu25,
+    a26, mu26, a27, mu27, a28, mu28, a29, mu29, a30, mu30, a31, mu31, a32, mu32, a33,
+    mu33, a34, mu34, a35, mu35, a36, mu36, a37, mu37, a38, mu38, a39, mu39, a40, mu40,
+    a41, mu41, a42, mu42, a43, mu43, a44, mu44, a45, mu45, a46, mu46, a47, mu47, a48,
+    mu48, a49, mu49, a50, mu50, a51, mu51, a52, mu52, a53, mu53, a54, mu54, a55, mu55,
+    a56, mu56, a57, mu57, a58, mu58, a59, mu59, a60, mu60) + kU(0, fac, kUmax, steep,
+    t_wait, cliffstart, kUmin))/kR)^2/(2*(1+(kF(0, fac, t_wait, sigma,  L, k_base,
+    t0, a1, mu1, a2, mu2, a3, mu3, a4, mu4, a5, mu5, a6, mu6, a7, mu7, a8, mu8, a9,
+    mu9, a10, mu10, a11, mu11, a12, mu12, a13, mu13, a14, mu14, a15, mu15, a16, mu16,
+    a17, mu17, a18, mu18, a19, mu19, a20, mu20, a21, mu21, a22, mu22, a23, mu23, a24,
+    mu24, a25, mu25, a26, mu26, a27, mu27, a28, mu28, a29, mu29, a30, mu30, a31, mu31,
+    a32, mu32, a33, mu33, a34, mu34, a35, mu35, a36, mu36, a37, mu37, a38, mu38, a39,
+    mu39, a40, mu40, a41, mu41, a42, mu42, a43, mu43, a44, mu44, a45, mu45, a46, mu46,
+    a47, mu47, a48, mu48, a49, mu49, a50, mu50, a51, mu51, a52, mu52, a53, mu53, a54,
+    mu54, a55, mu55, a56, mu56, a57, mu57, a58, mu58, a59, mu59, a60, mu60)/gP))*(1+(kF(0,
+    fac, t_wait, sigma,  L, k_base, t0, a1, mu1, a2, mu2, a3, mu3, a4, mu4, a5, mu5,
+    a6, mu6, a7, mu7, a8, mu8, a9, mu9, a10, mu10, a11, mu11, a12, mu12, a13, mu13,
+    a14, mu14, a15, mu15, a16, mu16, a17, mu17, a18, mu18, a19, mu19, a20, mu20, a21,
+    mu21, a22, mu22, a23, mu23, a24, mu24, a25, mu25, a26, mu26, a27, mu27, a28, mu28,
+    a29, mu29, a30, mu30, a31, mu31, a32, mu32, a33, mu33, a34, mu34, a35, mu35, a36,
+    mu36, a37, mu37, a38, mu38, a39, mu39, a40, mu40, a41, mu41, a42, mu42, a43, mu43,
+    a44, mu44, a45, mu45, a46, mu46, a47, mu47, a48, mu48, a49, mu49, a50, mu50, a51,
+    mu51, a52, mu52, a53, mu53, a54, mu54, a55, mu55, a56, mu56, a57, mu57, a58, mu58,
+    a59, mu59, a60, mu60)/gV)))^2 - (nves*nsites)/((1+(kF(0, fac, t_wait, sigma,  L,
+    k_base, t0, a1, mu1, a2, mu2, a3, mu3, a4, mu4, a5, mu5, a6, mu6, a7, mu7, a8,
+    mu8, a9, mu9, a10, mu10, a11, mu11, a12, mu12, a13, mu13, a14, mu14, a15, mu15,
+    a16, mu16, a17, mu17, a18, mu18, a19, mu19, a20, mu20, a21, mu21, a22, mu22, a23,
+    mu23, a24, mu24, a25, mu25, a26, mu26, a27, mu27, a28, mu28, a29, mu29, a30, mu30,
+    a31, mu31, a32, mu32, a33, mu33, a34, mu34, a35, mu35, a36, mu36, a37, mu37, a38,
+    mu38, a39, mu39, a40, mu40, a41, mu41, a42, mu42, a43, mu43, a44, mu44, a45, mu45,
+    a46, mu46, a47, mu47, a48, mu48, a49, mu49, a50, mu50, a51, mu51, a52, mu52, a53,
+    mu53, a54, mu54, a55, mu55, a56, mu56, a57, mu57, a58, mu58, a59, mu59, a60, mu60)/gP))*(1+(kF(0,
+    fac, t_wait, sigma,  L, k_base, t0, a1, mu1, a2, mu2, a3, mu3, a4, mu4, a5, mu5,
+    a6, mu6, a7, mu7, a8, mu8, a9, mu9, a10, mu10, a11, mu11, a12, mu12, a13, mu13,
+    a14, mu14, a15, mu15, a16, mu16, a17, mu17, a18, mu18, a19, mu19, a20, mu20, a21,
+    mu21, a22, mu22, a23, mu23, a24, mu24, a25, mu25, a26, mu26, a27, mu27, a28, mu28,
+    a29, mu29, a30, mu30, a31, mu31, a32, mu32, a33, mu33, a34, mu34, a35, mu35, a36,
+    mu36, a37, mu37, a38, mu38, a39, mu39, a40, mu40, a41, mu41, a42, mu42, a43, mu43,
+    a44, mu44, a45, mu45, a46, mu46, a47, mu47, a48, mu48, a49, mu49, a50, mu50, a51,
+    mu51, a52, mu52, a53, mu53, a54, mu54, a55, mu55, a56, mu56, a57, mu57, a58, mu58,
+    a59, mu59, a60, mu60)/gV))))
+- stateId: V
+  rightHandSide: kU(t, fac, kUmax, steep, t_wait, cliffstart, kUmin)*R+gV*WV-kR*V*P
+  initialValue: nves -(1+(kF(0, fac, t_wait, sigma,  L, k_base, t0, a1, mu1, a2, mu2,
+    a3, mu3, a4, mu4, a5, mu5, a6, mu6, a7, mu7, a8, mu8, a9, mu9, a10, mu10, a11,
+    mu11, a12, mu12, a13, mu13, a14, mu14, a15, mu15, a16, mu16, a17, mu17, a18, mu18,
+    a19, mu19, a20, mu20, a21, mu21, a22, mu22, a23, mu23, a24, mu24, a25, mu25, a26,
+    mu26, a27, mu27, a28, mu28, a29, mu29, a30, mu30, a31, mu31, a32, mu32, a33, mu33,
+    a34, mu34, a35, mu35, a36, mu36, a37, mu37, a38, mu38, a39, mu39, a40, mu40, a41,
+    mu41, a42, mu42, a43, mu43, a44, mu44, a45, mu45, a46, mu46, a47, mu47, a48, mu48,
+    a49, mu49, a50, mu50, a51, mu51, a52, mu52, a53, mu53, a54, mu54, a55, mu55, a56,
+    mu56, a57, mu57, a58, mu58, a59, mu59, a60, mu60)/gV))*R
+- stateId: P
+  rightHandSide: kU(t, fac, kUmax, steep, t_wait, cliffstart, kUmin)*R -kR*V*P + gP*WP
+  initialValue: nsites -(1+(kF(0, fac, t_wait, sigma,  L, k_base, t0, a1, mu1, a2,
+    mu2, a3, mu3, a4, mu4, a5, mu5, a6, mu6, a7, mu7, a8, mu8, a9, mu9, a10, mu10,
+    a11, mu11, a12, mu12, a13, mu13, a14, mu14, a15, mu15, a16, mu16, a17, mu17, a18,
+    mu18, a19, mu19, a20, mu20, a21, mu21, a22, mu22, a23, mu23, a24, mu24, a25, mu25,
+    a26, mu26, a27, mu27, a28, mu28, a29, mu29, a30, mu30, a31, mu31, a32, mu32, a33,
+    mu33, a34, mu34, a35, mu35, a36, mu36, a37, mu37, a38, mu38, a39, mu39, a40, mu40,
+    a41, mu41, a42, mu42, a43, mu43, a44, mu44, a45, mu45, a46, mu46, a47, mu47, a48,
+    mu48, a49, mu49, a50, mu50, a51, mu51, a52, mu52, a53, mu53, a54, mu54, a55, mu55,
+    a56, mu56, a57, mu57, a58, mu58, a59, mu59, a60,mu60)/gP))*R
+- stateId: WV
+  rightHandSide: kF(t, fac, t_wait, sigma,  L, k_base, t0, a1, mu1, a2, mu2, a3, mu3,
+    a4, mu4, a5, mu5, a6, mu6, a7, mu7, a8, mu8, a9, mu9, a10, mu10, a11, mu11, a12,
+    mu12, a13, mu13, a14, mu14, a15, mu15, a16, mu16, a17, mu17, a18, mu18, a19, mu19,
+    a20, mu20, a21, mu21, a22, mu22, a23, mu23, a24, mu24, a25, mu25, a26, mu26, a27,
+    mu27, a28, mu28, a29, mu29, a30, mu30, a31, mu31, a32, mu32, a33, mu33, a34, mu34,
+    a35, mu35, a36, mu36, a37, mu37, a38, mu38, a39, mu39, a40, mu40, a41, mu41, a42,
+    mu42, a43, mu43, a44, mu44, a45, mu45, a46, mu46, a47, mu47, a48, mu48, a49, mu49,
+    a50, mu50, a51, mu51, a52, mu52, a53, mu53, a54, mu54, a55, mu55, a56, mu56, a57,
+    mu57, a58, mu58, a59, mu59, a60, mu60)*R-gV*WV
+  initialValue: kF(0, fac, t_wait, sigma,  L, k_base, t0, a1, mu1, a2, mu2, a3, mu3,
+    a4, mu4, a5, mu5, a6, mu6, a7, mu7, a8, mu8, a9, mu9, a10, mu10, a11, mu11, a12,
+    mu12, a13, mu13, a14, mu14, a15, mu15, a16, mu16, a17, mu17, a18, mu18, a19, mu19,
+    a20, mu20, a21, mu21, a22, mu22, a23, mu23, a24, mu24, a25, mu25, a26, mu26, a27,
+    mu27, a28, mu28, a29, mu29, a30, mu30, a31, mu31, a32, mu32, a33, mu33, a34, mu34,
+    a35, mu35, a36, mu36, a37, mu37, a38, mu38, a39, mu39, a40, mu40, a41, mu41, a42,
+    mu42, a43, mu43, a44, mu44, a45, mu45, a46, mu46, a47, mu47, a48, mu48, a49, mu49,
+    a50, mu50, a51, mu51, a52, mu52, a53, mu53, a54, mu54, a55, mu55, a56, mu56, a57,
+    mu57, a58, mu58, a59, mu59, a60, mu60)/gV*R
+- stateId: WP
+  rightHandSide: kF(t, fac, t_wait, sigma,  L, k_base, t0, a1, mu1, a2, mu2, a3, mu3,
+    a4, mu4, a5, mu5, a6, mu6, a7, mu7, a8, mu8, a9, mu9, a10, mu10, a11, mu11, a12,
+    mu12, a13, mu13, a14, mu14, a15, mu15, a16, mu16, a17, mu17, a18, mu18, a19, mu19,
+    a20, mu20, a21, mu21, a22, mu22, a23, mu23, a24, mu24, a25, mu25, a26, mu26, a27,
+    mu27, a28, mu28, a29, mu29, a30, mu30, a31, mu31, a32, mu32, a33, mu33, a34, mu34,
+    a35, mu35, a36, mu36, a37, mu37, a38, mu38, a39, mu39, a40, mu40, a41, mu41, a42,
+    mu42, a43, mu43, a44, mu44, a45, mu45, a46, mu46, a47, mu47, a48, mu48, a49, mu49,
+    a50, mu50, a51, mu51, a52, mu52, a53, mu53, a54, mu54, a55, mu55, a56, mu56, a57,
+    mu57, a58, mu58, a59, mu59, a60, mu60)*R-gP*WP
+  initialValue: kF(0, fac, t_wait, sigma,  L, k_base, t0, a1, mu1, a2, mu2, a3, mu3,
+    a4, mu4, a5, mu5, a6, mu6, a7, mu7, a8, mu8, a9, mu9, a10, mu10, a11, mu11, a12,
+    mu12, a13, mu13, a14, mu14, a15, mu15, a16, mu16, a17, mu17, a18, mu18, a19, mu19,
+    a20, mu20, a21, mu21, a22, mu22, a23, mu23, a24, mu24, a25, mu25, a26, mu26, a27,
+    mu27, a28, mu28, a29, mu29, a30, mu30, a31, mu31, a32, mu32, a33, mu33, a34, mu34,
+    a35, mu35, a36, mu36, a37, mu37, a38, mu38, a39, mu39, a40, mu40, a41, mu41, a42,
+    mu42, a43, mu43, a44, mu44, a45, mu45, a46, mu46, a47, mu47, a48, mu48, a49, mu49,
+    a50, mu50, a51, mu51, a52, mu52, a53, mu53, a54, mu54, a55, mu55, a56, mu56, a57,
+    mu57, a58, mu58, a59, mu59, a60, mu60)/gP*R
+- stateId: F
+  rightHandSide: kF(t, fac, t_wait, sigma,  L, k_base, t0, a1, mu1, a2, mu2, a3, mu3,
+    a4, mu4, a5, mu5, a6, mu6, a7, mu7, a8, mu8, a9, mu9, a10, mu10, a11, mu11, a12,
+    mu12, a13, mu13, a14, mu14, a15, mu15, a16, mu16, a17, mu17, a18, mu18, a19, mu19,
+    a20, mu20, a21, mu21, a22, mu22, a23, mu23, a24, mu24, a25, mu25, a26, mu26, a27,
+    mu27, a28, mu28, a29, mu29, a30, mu30, a31, mu31, a32, mu32, a33, mu33, a34, mu34,
+    a35, mu35, a36, mu36, a37, mu37, a38, mu38, a39, mu39, a40, mu40, a41, mu41, a42,
+    mu42, a43, mu43, a44, mu44, a45, mu45, a46, mu46, a47, mu47, a48, mu48, a49, mu49,
+    a50, mu50, a51, mu51, a52, mu52, a53, mu53, a54, mu54, a55, mu55, a56, mu56, a57,
+    mu57, a58, mu58, a59, mu59, a60, mu60)*R
+  initialValue: 0
+- stateId: NF
+  rightHandSide: N_var*kF(t, fac, t_wait, sigma,  L, k_base, t0, a1, mu1, a2, mu2,
+    a3, mu3, a4, mu4, a5, mu5, a6, mu6, a7, mu7, a8, mu8, a9, mu9, a10, mu10, a11,
+    mu11, a12, mu12, a13, mu13, a14, mu14, a15, mu15, a16, mu16, a17, mu17, a18, mu18,
+    a19, mu19, a20, mu20, a21, mu21, a22, mu22, a23, mu23, a24, mu24, a25, mu25, a26,
+    mu26, a27, mu27, a28, mu28, a29, mu29, a30, mu30, a31, mu31, a32, mu32, a33, mu33,
+    a34, mu34, a35, mu35, a36, mu36, a37, mu37, a38, mu38, a39, mu39, a40, mu40, a41,
+    mu41, a42, mu42, a43, mu43, a44, mu44, a45, mu45, a46, mu46, a47, mu47, a48, mu48,
+    a49, mu49, a50, mu50, a51, mu51, a52, mu52, a53, mu53, a54, mu54, a55, mu55, a56,
+    mu56, a57, mu57, a58, mu58, a59, mu59, a60, mu60)*R
+  initialValue: 0
+parameters:
+- parameterId: N_var
+  nominalValue: 200
+- parameterId: t_wait
+  nominalValue: 0.04749897
+- parameterId: gV
+  nominalValue: 0.4
+- parameterId: gP
+  nominalValue: 50
+- parameterId: fac
+  nominalValue: 0.9916852852852853
+- parameterId: sigma
+  nominalValue: 0.0002513729885819867
+- parameterId: L
+  nominalValue: 0.945894105948185
+- parameterId: k_base
+  nominalValue: 12.299970830294866
+- parameterId: t0
+  nominalValue: 0.09611478956235504
+- parameterId: a1
+  nominalValue: 1398.1003414493289
+- parameterId: mu1
+  nominalValue: 0.0026520909
+- parameterId: a2
+  nominalValue: 1420.5403135984807
+- parameterId: mu2
+  nominalValue: 0.019302090900000003
+- parameterId: a3
+  nominalValue: 1438.7158861948967
+- parameterId: mu3
+  nominalValue: 0.035952090900000004
+- parameterId: a4
+  nominalValue: 1454.1872980939845
+- parameterId: mu4
+  nominalValue: 0.0526020909
+- parameterId: a5
+  nominalValue: 1467.3394438142232
+- parameterId: mu5
+  nominalValue: 0.0693020909
+- parameterId: a6
+  nominalValue: 1478.437572418755
+- parameterId: mu6
+  nominalValue: 0.0859520909
+- parameterId: a7
+  nominalValue: 1487.7849564481503
+- parameterId: mu7
+  nominalValue: 0.10260209090000001
+- parameterId: a8
+  nominalValue: 1495.6149341234673
+- parameterId: mu8
+  nominalValue: 0.11925209090000001
+- parameterId: a9
+  nominalValue: 1502.1499859064245
+- parameterId: mu9
+  nominalValue: 0.13595209090000002
+- parameterId: a10
+  nominalValue: 1507.590957480533
+- parameterId: mu10
+  nominalValue: 0.15260209090000001
+- parameterId: a11
+  nominalValue: 1512.1396759149263
+- parameterId: mu11
+  nominalValue: 0.1692520909
+- parameterId: a12
+  nominalValue: 1515.9335792195877
+- parameterId: mu12
+  nominalValue: 0.1859520909
+- parameterId: a13
+  nominalValue: 1519.1200181062306
+- parameterId: mu13
+  nominalValue: 0.2026020909
+- parameterId: a14
+  nominalValue: 1521.790556306322
+- parameterId: mu14
+  nominalValue: 0.2192520909
+- parameterId: a15
+  nominalValue: 1524.0486240353737
+- parameterId: mu15
+  nominalValue: 0.23595209090000002
+- parameterId: a16
+  nominalValue: 1525.9690204961282
+- parameterId: mu16
+  nominalValue: 0.25260209089999996
+- parameterId: a17
+  nominalValue: 1527.5642465108601
+- parameterId: mu17
+  nominalValue: 0.26925209089999996
+- parameterId: a18
+  nominalValue: 1528.958688144849
+- parameterId: mu18
+  nominalValue: 0.2859520909
+- parameterId: a19
+  nominalValue: 1530.1499943040874
+- parameterId: mu19
+  nominalValue: 0.3026020909
+- parameterId: a20
+  nominalValue: 1531.1459798465874
+- parameterId: mu20
+  nominalValue: 0.3192520909
+- parameterId: a21
+  nominalValue: 1532.005708985622
+- parameterId: mu21
+  nominalValue: 0.3359020909
+- parameterId: a22
+  nominalValue: 1532.7544336547721
+- parameterId: mu22
+  nominalValue: 0.3526020909
+- parameterId: a23
+  nominalValue: 1533.3341550779792
+- parameterId: mu23
+  nominalValue: 0.3692520909
+- parameterId: a24
+  nominalValue: 1533.928510477515
+- parameterId: mu24
+  nominalValue: 0.3859020909
+- parameterId: a25
+  nominalValue: 1534.4057765968894
+- parameterId: mu25
+  nominalValue: 0.4026020909
+- parameterId: a26
+  nominalValue: 1534.8121335492137
+- parameterId: mu26
+  nominalValue: 0.4192520909
+- parameterId: a27
+  nominalValue: 1535.1478077916427
+- parameterId: mu27
+  nominalValue: 0.4359020909
+- parameterId: a28
+  nominalValue: 1535.4498877917151
+- parameterId: mu28
+  nominalValue: 0.4526020909
+- parameterId: a29
+  nominalValue: 1535.7047931005886
+- parameterId: mu29
+  nominalValue: 0.4692520909
+- parameterId: a30
+  nominalValue: 1535.85371494045
+- parameterId: mu30
+  nominalValue: 0.48590209089999997
+- parameterId: a31
+  nominalValue: 1536.0490312648471
+- parameterId: mu31
+  nominalValue: 0.5026020909000001
+- parameterId: a32
+  nominalValue: 1536.2180571251301
+- parameterId: mu32
+  nominalValue: 0.5192520909
+- parameterId: a33
+  nominalValue: 1536.3567567364682
+- parameterId: mu33
+  nominalValue: 0.5359020909000001
+- parameterId: a34
+  nominalValue: 1536.478275775211
+- parameterId: mu34
+  nominalValue: 0.5526020909
+- parameterId: a35
+  nominalValue: 1536.5855292690987
+- parameterId: mu35
+  nominalValue: 0.5692520909000001
+- parameterId: a36
+  nominalValue: 1536.660801688505
+- parameterId: mu36
+  nominalValue: 0.5859520909000001
+- parameterId: a37
+  nominalValue: 1536.7343385998672
+- parameterId: mu37
+  nominalValue: 0.6026020909
+- parameterId: a38
+  nominalValue: 1536.820160051575
+- parameterId: mu38
+  nominalValue: 0.6192520909000001
+- parameterId: a39
+  nominalValue: 1536.8635523957626
+- parameterId: mu39
+  nominalValue: 0.6359020909
+- parameterId: a40
+  nominalValue: 1536.9320949112073
+- parameterId: mu40
+  nominalValue: 0.6526020909000001
+- parameterId: a41
+  nominalValue: 1536.9548980438894
+- parameterId: mu41
+  nominalValue: 0.6692520909
+- parameterId: a42
+  nominalValue: 1537.0016893016061
+- parameterId: mu42
+  nominalValue: 0.6859020909000001
+- parameterId: a43
+  nominalValue: 1537.0310519299715
+- parameterId: mu43
+  nominalValue: 0.7026020909
+- parameterId: a44
+  nominalValue: 1537.0483202071252
+- parameterId: mu44
+  nominalValue: 0.7192520909000001
+- parameterId: a45
+  nominalValue: 1537.0719627176447
+- parameterId: mu45
+  nominalValue: 0.7359020909
+- parameterId: a46
+  nominalValue: 1537.09649277841
+- parameterId: mu46
+  nominalValue: 0.7526020909000001
+- parameterId: a47
+  nominalValue: 1537.1102442845
+- parameterId: mu47
+  nominalValue: 0.7692520909
+- parameterId: a48
+  nominalValue: 1537.119602522696
+- parameterId: mu48
+  nominalValue: 0.7859020909000001
+- parameterId: a49
+  nominalValue: 1537.1407150992975
+- parameterId: mu49
+  nominalValue: 0.8026020909000001
+- parameterId: a50
+  nominalValue: 1537.1442538504425
+- parameterId: mu50
+  nominalValue: 0.8192520909000001
+- parameterId: a51
+  nominalValue: 1537.159132424842
+- parameterId: mu51
+  nominalValue: 0.8359020909000001
+- parameterId: a52
+  nominalValue: 1537.1642729029431
+- parameterId: mu52
+  nominalValue: 0.8526020909
+- parameterId: a53
+  nominalValue: 1537.1887425841355
+- parameterId: mu53
+  nominalValue: 0.8692520909000001
+- parameterId: a54
+  nominalValue: 1537.194536271454
+- parameterId: mu54
+  nominalValue: 0.8859020909
+- parameterId: a55
+  nominalValue: 1537.1977757243453
+- parameterId: mu55
+  nominalValue: 0.9026020909000001
+- parameterId: a56
+  nominalValue: 1537.197835082342
+- parameterId: mu56
+  nominalValue: 0.9192520909
+- parameterId: a57
+  nominalValue: 1537.2022805625381
+- parameterId: mu57
+  nominalValue: 0.9359020909000001
+- parameterId: a58
+  nominalValue: 1537.1402533176963
+- parameterId: mu58
+  nominalValue: 0.9526020909
+- parameterId: a59
+  nominalValue: 1537.2167208868236
+- parameterId: mu59
+  nominalValue: 0.9692520909000001
+- parameterId: a60
+  nominalValue: 1537.2163878841848
+- parameterId: mu60
+  nominalValue: 0.9859020909
+- parameterId: kUmax
+  nominalValue: 60.35503810957161
+- parameterId: kUmin
+  nominalValue: 1.9508529726110079e-07
+- parameterId: steep
+  nominalValue: 33141.27676996941
+- parameterId: cliffstart
+  nominalValue: 0.0014491913262526226
+- parameterId: kR
+  nominalValue: 12.93086040268265
+- parameterId: nves
+  nominalValue: 10.0
+- parameterId: nsites
+  nominalValue: 1.0
+functions:
+- functionId: kF
+  arguments: t, fac, t_wait, sigma,  L, k_base, t0, a1, mu1, a2, mu2, a3, mu3, a4,
+    mu4, a5, mu5, a6, mu6, a7, mu7, a8, mu8, a9, mu9, a10, mu10, a11, mu11, a12, mu12,
+    a13, mu13, a14, mu14, a15, mu15, a16, mu16, a17, mu17, a18, mu18, a19, mu19, a20,
+    mu20, a21, mu21, a22, mu22, a23, mu23, a24, mu24, a25, mu25, a26, mu26, a27, mu27,
+    a28, mu28, a29, mu29, a30, mu30, a31, mu31, a32, mu32, a33, mu33, a34, mu34, a35,
+    mu35, a36, mu36, a37, mu37, a38, mu38, a39, mu39, a40, mu40, a41, mu41, a42, mu42,
+    a43, mu43, a44, mu44, a45, mu45, a46, mu46, a47, mu47, a48, mu48, a49, mu49, a50,
+    mu50, a51, mu51, a52, mu52, a53, mu53, a54, mu54, a55, mu55, a56, mu56, a57, mu57,
+    a58, mu58, a59, mu59, a60, mu60
+  formula: 10^(L*(1-exp(-k_base*((t*fac-t_wait)-t0))))+a1*exp(-0.5*((t*fac-t_wait)-mu1)^2/sigma^2)+a2*exp(-0.5*((t*fac-t_wait)-mu2)^2/sigma^2)+a3*exp(-0.5*((t*fac-t_wait)-mu3)^2/sigma^2)+a4*exp(-0.5*((t*fac-t_wait)-mu4)^2/sigma^2)+a5*exp(-0.5*((t*fac-t_wait)-mu5)^2/sigma^2)+a6*exp(-0.5*((t*fac-t_wait)-mu6)^2/sigma^2)+a7*exp(-0.5*((t*fac-t_wait)-mu7)^2/sigma^2)+a8*exp(-0.5*((t*fac-t_wait)-mu8)^2/sigma^2)+a9*exp(-0.5*((t*fac-t_wait)-mu9)^2/sigma^2)+a10*exp(-0.5*((t*fac-t_wait)-mu10)^2/sigma^2)+a11*exp(-0.5*((t*fac-t_wait)-mu11)^2/sigma^2)+a12*exp(-0.5*((t*fac-t_wait)-mu12)^2/sigma^2)+a13*exp(-0.5*((t*fac-t_wait)-mu13)^2/sigma^2)+a14*exp(-0.5*((t*fac-t_wait)-mu14)^2/sigma^2)+a15*exp(-0.5*((t*fac-t_wait)-mu15)^2/sigma^2)+a16*exp(-0.5*((t*fac-t_wait)-mu16)^2/sigma^2)+a17*exp(-0.5*((t*fac-t_wait)-mu17)^2/sigma^2)+a18*exp(-0.5*((t*fac-t_wait)-mu18)^2/sigma^2)+a19*exp(-0.5*((t*fac-t_wait)-mu19)^2/sigma^2)+a20*exp(-0.5*((t*fac-t_wait)-mu20)^2/sigma^2)+a21*exp(-0.5*((t*fac-t_wait)-mu21)^2/sigma^2)+a22*exp(-0.5*((t*fac-t_wait)-mu22)^2/sigma^2)+a23*exp(-0.5*((t*fac-t_wait)-mu23)^2/sigma^2)+a24*exp(-0.5*((t*fac-t_wait)-mu24)^2/sigma^2)+a25*exp(-0.5*((t*fac-t_wait)-mu25)^2/sigma^2)+a26*exp(-0.5*((t*fac-t_wait)-mu26)^2/sigma^2)+a27*exp(-0.5*((t*fac-t_wait)-mu27)^2/sigma^2)+a28*exp(-0.5*((t*fac-t_wait)-mu28)^2/sigma^2)+a29*exp(-0.5*((t*fac-t_wait)-mu29)^2/sigma^2)+a30*exp(-0.5*((t*fac-t_wait)-mu30)^2/sigma^2)+a31*exp(-0.5*((t*fac-t_wait)-mu31)^2/sigma^2)+a32*exp(-0.5*((t*fac-t_wait)-mu32)^2/sigma^2)+a33*exp(-0.5*((t*fac-t_wait)-mu33)^2/sigma^2)+a34*exp(-0.5*((t*fac-t_wait)-mu34)^2/sigma^2)+a35*exp(-0.5*((t*fac-t_wait)-mu35)^2/sigma^2)+a36*exp(-0.5*((t*fac-t_wait)-mu36)^2/sigma^2)+a37*exp(-0.5*((t*fac-t_wait)-mu37)^2/sigma^2)+a38*exp(-0.5*((t*fac-t_wait)-mu38)^2/sigma^2)+a39*exp(-0.5*((t*fac-t_wait)-mu39)^2/sigma^2)+a40*exp(-0.5*((t*fac-t_wait)-mu40)^2/sigma^2)+a41*exp(-0.5*((t*fac-t_wait)-mu41)^2/sigma^2)+a42*exp(-0.5*((t*fac-t_wait)-mu42)^2/sigma^2)+a43*exp(-0.5*((t*fac-t_wait)-mu43)^2/sigma^2)+a44*exp(-0.5*((t*fac-t_wait)-mu44)^2/sigma^2)+a45*exp(-0.5*((t*fac-t_wait)-mu45)^2/sigma^2)+a46*exp(-0.5*((t*fac-t_wait)-mu46)^2/sigma^2)+a47*exp(-0.5*((t*fac-t_wait)-mu47)^2/sigma^2)+a48*exp(-0.5*((t*fac-t_wait)-mu48)^2/sigma^2)+a49*exp(-0.5*((t*fac-t_wait)-mu49)^2/sigma^2)+a50*exp(-0.5*((t*fac-t_wait)-mu50)^2/sigma^2)+a51*exp(-0.5*((t*fac-t_wait)-mu51)^2/sigma^2)+a52*exp(-0.5*((t*fac-t_wait)-mu52)^2/sigma^2)+a53*exp(-0.5*((t*fac-t_wait)-mu53)^2/sigma^2)+a54*exp(-0.5*((t*fac-t_wait)-mu54)^2/sigma^2)+a55*exp(-0.5*((t*fac-t_wait)-mu55)^2/sigma^2)+a56*exp(-0.5*((t*fac-t_wait)-mu56)^2/sigma^2)+a57*exp(-0.5*((t*fac-t_wait)-mu57)^2/sigma^2)+a58*exp(-0.5*((t*fac-t_wait)-mu58)^2/sigma^2)+a59*exp(-0.5*((t*fac-t_wait)-mu59)^2/sigma^2)+a60*exp(-0.5*((t*fac-t_wait)-mu60)^2/sigma^2)
+- functionId: kU
+  arguments: t, fac, kUmax, steep, t_wait, cliffstart, kUmin
+  formula: kUmax*(1-1/(1+exp(-steep*((t*fac-t_wait)-cliffstart)))) + kUmin
