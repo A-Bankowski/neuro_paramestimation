@@ -16,10 +16,10 @@ model_output_dir = "recovery_model_60_peaks_qssa_rates"#model_name
 """
 If this is the first time running the code and there is no recovery_model_60_peaks_qssa_rates python module, run this to import it with amici 
 """
-
-sbml_reader = libsbml.SBMLReader() #blub
-sbml_doc = sbml_reader.readSBML(sbml_file)
-sbml_model = sbml_doc.getModel()
-#import sbml model, compile and generate amici module
-sbml_importer = amici.SbmlImporter(sbml_file)
-sbml_importer.sbml2amici(model_name, model_output_dir, verbose=True,generate_sensitivity_code = False)
+if __name__ == "__main__":
+    sbml_reader = libsbml.SBMLReader() #blub
+    sbml_doc = sbml_reader.readSBML(sbml_file)
+    sbml_model = sbml_doc.getModel()
+    #import sbml model, compile and generate amici module
+    sbml_importer = amici.SbmlImporter(sbml_file)
+    sbml_importer.sbml2amici(model_name, model_output_dir, verbose=True,generate_sensitivity_code = False)

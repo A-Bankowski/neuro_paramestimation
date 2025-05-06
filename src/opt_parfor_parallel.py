@@ -25,7 +25,7 @@ from mpi4py import MPI
 COMM = MPI.COMM_WORLD
 
 from opt_settings import *
-from ParallelStuff import *
+from embarrassingly_parallel_forloop import *
 
 plt.rcParams.update({
     "font.family": "serif",
@@ -247,6 +247,8 @@ def optimize_params(param_0):
 Initialize the parameters
 """
 params_0_list=[]
+#used in the params_0 intitialisation
+nom = model.getParameters()
 for i in range(len(param_indices)):
     # create the bounds of the initial radius
     nom_val = 10**nom[param_indices[i]]
