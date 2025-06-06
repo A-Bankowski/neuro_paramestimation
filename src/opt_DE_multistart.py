@@ -1,7 +1,7 @@
 import time
 from matplotlib import pyplot as plt
 from multiprocessing import Pool
-from scipy.optimize import minimize
+from scipy.optimize import minimize, differential_evolution
 from numpy import exp
 
 import importlib
@@ -24,8 +24,8 @@ from mpi4py import MPI
 
 COMM = MPI.COMM_WORLD
 
-from opt_settings import *
-from embarrassingly_parallel_forloop import *
+from opt_settings_multistart import *
+from ParallelStuff import *
 
 plt.rcParams.update({
     "font.family": "serif",
@@ -37,8 +37,10 @@ plt.rcParams.update({
 ###############################################################################################################################################################################################
 """
 This version uses @parFor. In opt_settings set the number of starts. When submitting the job file, choose an appropriate number of nodes to distribute the tasks.
+We generate Figure 9 and 10 from the paper with this code
 """
 ###############################################################################################################################################################################################
+
 
 
 
@@ -64,12 +66,12 @@ If this is the first time running the code and there is no recovery_model_60_pea
 
 
 # load amici module (the usual starting point later for the analysis) os.path.abspath(model_output_dir)
-sys.path.insert(0, model_output_dir)
+#sys.path.insert(0, model_output_dir)
 model_module =  amici.import_model_module(model_name,model_output_dir)
 model = model_module.getModel()
 ts = np.load('/data/numerik/people/abankowski/neuro_param_estimation/codes/ts.npy')
 times = ts
-np.save('/data/numerik/people/abankowski/neuro_param_estimation/codes/times.npy',times)
+#np.save('/data/numerik/people/abankowski/neuro_param_estimation/codes/times.npy',times)
 
 """ 
 loading the times and the solver 
@@ -101,34 +103,34 @@ for i in range(len(old_not_)):
     id_= old_param_names.index(old_not_[i])
     new_param_names[id_] = new_not_[i]
 
-# print model information
-print("Parameter values",model.getParameters())
-print("Model name:", model.getName())
-print("Model parameters:", model.getParameterIds())
-print("Model outputs:   ", model.getObservableIds())
-print("Model states:    ", model.getStateIds())
-
 # initialize the variables
 variables = { name:10**np.array(model.getParameters())[i] for i,name in enumerate(model.getParameterIds()) }
 
 #für parameterschätzung III
 if param_est ==3:
     variables['L'] = 1.6
-    variables['k_base'] = 18.7
-    variables['t0'] = 3.9e-4
+    variables['k_base'] = 16.1#15.6
+    variables['t0'] = 2.9e-6
 
-#???
+
 t = amici.runAmiciSimulation(model, solver, None).t
 R = amici.runAmiciSimulation(model, solver, None).x[:,0]
 
 for n, val in enumerate([20 for i in range(50)]):
     n+=61
     globals()["mu%d"%n] = val
-    
+
 if (measurements=='real'):
-	variables['t_wait'] = variables['t_wait'] - 0.0014*1.9
+    variables['t_wait'] = variables['t_wait'] - 0.0014*1.9
 nsites = number_of_sites
 model.setParameters(np.log10(np.array([variables[key] for key in variables])))
+
+# print model information
+print("Parameter values",model.getParameters())
+print("Model name:", model.getName())
+print("Model parameters:", model.getParameterIds())
+print("Model outputs:   ", model.getObservableIds())
+print("Model states:    ", model.getStateIds())
 
 #used in the params_0 intitialisation
 nom = model.getParameters()
@@ -206,11 +208,12 @@ if (measurements == 'real'):
                               
 if (objective == 'peaks_cur'):
     def f_obj(param):
+
         #get the current parameters
         param_Id = list(model.getParameterIds()[i] for i in param_indices)
         model.setParameterById(dict(zip(param_Id, param)))
         all_params = np.array(model.getParameters())
-
+ 
         #calculate the current
         R = amici.runAmiciSimulation(model, solver).x[:,0]
         t = amici.runAmiciSimulation(model, solver).t
@@ -229,66 +232,41 @@ if (objective == 'peaks_cur'):
             #print(fehler)
             return fehler
         else: 
-            print("Inf")
+            #print("Inf")
             return np.inf
 
-#    
+
 # definition of optimization function
-def optimize_params(param_0):
+def optimize_params_single_run(run_nr):
+
     print("SETTING",list(model.getParameterIds()[i] for i in param_indices))
-    print("to",param_0)
     print("with bounds",param_bounds)
-    opt_ = minimize(f_obj, param_0, method = opt_algotrithm, bounds=param_bounds, tol=1e-3, options=opt_options)
-    print(opt_)
-    opt_res = opt_.x
-    return opt_res
-
-"""
-Initialize the parameters
-"""
-params_0_list=[]
-#used in the params_0 intitialisation
-nom = model.getParameters()
-for i in range(len(param_indices)):
-    # create the bounds of the initial radius
-    nom_val = 10**nom[param_indices[i]]
-    lb_log,ub_log = param_bounds[i]
-    lb=10**lb_log
-    ub=10**ub_log
     
-    lb_radius=(1-initial_radius_factor)*nom_val
-    ub_radius=(1+initial_radius_factor)*nom_val
-    
-    if lb_radius < lb or ub_radius > ub:
+    # Run differential evolution with parallel evaluation
+    opt_ = differential_evolution(f_obj,popsize=10, bounds=param_bounds, tol=1e-3, workers=1, polish=False,**opt_options)
+    print("Result run nr ", run_nr+1,":", opt_)
+    optimized_params =np.array(opt_.x)
+    res =np.array(np.concatenate(([run_nr],optimized_params,[f_obj(optimized_params)])))
+    return res
 
-        raise Exception("initial_radius_factor outside allowed bounds",model.getParameterIds()[param_indices[i]],lb,lb_radius,ub,ub_radius,nom_val)
-    
-    else:
-        random_betweens=np.random.default_rng(seed=seed).uniform(lb_radius,ub_radius,n_starts)
-        params_0_list.append(np.log10(random_betweens))
-params_0=np.array(params_0_list).T
-#params_0 = np.array([np.load(f"{exp_dir}")[ind]])
-np.save(f'{run_dir}/initial_params_array.npy',params_0)
-
-@parFor(params_0,COMM)
-def optimize_wrapper(param,COMM):
-    return optimize_params(param)
 #%%
+@parFor(nr_starts,COMM)
+def optimize_wrapper(fixed_param_value,COMM):
+    return optimize_params_single_run(fixed_param_value)
+
 #parallel optimization for all initial values.
 if __name__ == "__main__":
 
     #embarrassingly parallel for-loop --- give multiple starting points (n_starts many) within params_0 and start optimizing for each in parallel
+
     start_time = time.perf_counter()
-    result = optimize_wrapper(None, COMM)
-    if COMM.rank == 0:
-        print("Optimized Results:", 10**result[0])
+    result = optimize_wrapper(None,COMM)
+    np.save(f"{run_dir}/result.npy",result)
     finish_time = time.perf_counter()
 
-    print("Program finished in {} seconds - using embarrassingly parallel for-loops".format(finish_time-start_time))
-    print("---")
-    print("Result (in 10**)",10**result[0])
-    #save the parameter values
-    optimized_params =np.array(result)
-    np.save(f'{run_dir}/optimized_params_array.npy',optimized_params)
+    print("Program finished in {} seconds".format(finish_time-start_time))
+
+
+
 
 # %%
