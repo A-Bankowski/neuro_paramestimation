@@ -183,19 +183,18 @@ t = amici.runAmiciSimulation(model, solver, None).t
 
 #path strings for loading data
 current_data = 'data/Current_data_animal'+str(animal)+'.npy'
-nf_data = 'data/NF_data_animal'+str(animal)+'.npy'
+
 
 stop_ind=[-9,-4,-5,-7,-9]
 
 #find the peaks in the real data to compare with the simulated ones
 if (measurements == 'real'):
-    NF_data = np.load(nf_data)
     current_data=np.load(current_data)
     h=20000   # what is that?
     #
     top_peaks_data= find_peaks(current_data,distance=10,height=(-3.9e-8,-0.4e-8))[0][:stop_ind[animal-1]]
     bottom_peaks_data = find_peaks(-current_data,3e-8)[0]
-    NF_peaks_data = find_peaks(NF_data,height=h)[0]
+    
 
 #definition of the objective function
                               
@@ -211,7 +210,7 @@ if (objective == 'peaks_cur'):
         R = amici.runAmiciSimulation(model, solver).x[:,0]
         t = amici.runAmiciSimulation(model, solver).t
         NF_model = NF(all_params)
-        NF_peaks_model = find_peaks(NF_model)[0]
+        #NF_peaks_model = find_peaks(NF_model)[0]
         current_model = current(NF_model)
         
         #find the peaks in the simulated data
