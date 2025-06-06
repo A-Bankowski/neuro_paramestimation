@@ -1,14 +1,14 @@
 import time
 from matplotlib import pyplot as plt
 from multiprocessing import Pool
-from scipy.optimize import minimize, differential_evolution
+from scipy.optimize import differential_evolution
 from numpy import exp
 
 import importlib
 import os
 import sys
 import libsbml
-#sys.path.insert(0, '/data/numerik/people/abankowski/neuro_param_estimation/codes')
+
 import amici
 import amici.plotting
 import numpy as np
@@ -27,13 +27,6 @@ COMM = MPI.COMM_WORLD
 from opt_settings_fixedparams import *
 from ParallelStuff import *
 
-plt.rcParams.update({
-    "font.family": "serif",
-   "font.serif": "cm",
-    "axes.prop_cycle": cycler('color', ['#1f77b4', '#ff7f0e', '#2ca02c', 
-            '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf']),
-    })
-# -- somehow doesn't work on computing cluster
 ###############################################################################################################################################################################################
 """
 This version uses @parFor. In opt_settings set the number of starts. When submitting the job file, choose an appropriate number of nodes to distribute the tasks.
